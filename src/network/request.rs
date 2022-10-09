@@ -5,10 +5,8 @@ let resp = reqwest::get(url)
         .await?
         .text()
         .await?;
-    let keys = fetch_keys(&resp) 
-
+    let keys = fetch_keys(&resp);
     Ok(())
-
 }
 
 pub fn fetch_keys(text: &str) -> Vec<String>{

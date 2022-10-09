@@ -2,7 +2,6 @@
 mod network;
 use crate::network::request::*;
 
-
 #[tokio::main]
 async fn main() {
     match send_request("https://jsonplaceholder.typicode.com/posts").await {
