@@ -1,12 +1,12 @@
 use regex::Regex;
 
-pub async fn send_request(url: &str) -> Result<(), Box<dyn std::error::Error>> {
+pub async fn send_request(url: &str) -> Result<Vec<String>, Box<dyn std::error::Error>> {
 let resp = reqwest::get(url)
         .await?
         .text()
         .await?;
     let keys = fetch_keys(&resp);
-    Ok(())
+    Ok(keys)
 }
 
 pub fn fetch_keys(text: &str) -> Vec<String>{

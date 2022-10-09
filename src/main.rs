@@ -4,8 +4,7 @@ use crate::network::request::*;
 
 #[tokio::main]
 async fn main() {
-    match send_request("https://jsonplaceholder.typicode.com/posts").await {
-        Ok(_res) => println!("Success"),
-        Err(err) => println!("{:?}", err),
-    };
+    let response: Vec<String> = send_request("https://jsonplaceholder.typicode.com/posts").await.expect("Endpoint cant be called");
+
+    println!("Response: {:?} acquired.", response);
 }
