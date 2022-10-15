@@ -9,14 +9,10 @@ async fn main() {
 
     //Store response 
     
-    files::file::strip_dot(response);
-   // let write = files::file::create_file(&response, &end_point);
-   // match write {
-   //     Ok(_) => println!("Write successful."),
-   //     Err(err) => println!("{:?}", err),
-   // }
-
-
-    let response: Vec<String> = send_request("https://jsonplaceholder.typicode.com/posts").await.expect("Endpoint cant be called");
-    println!("Response: {:?} acquired.", response);
+    let end_point = files::file::strip_dot(end_point);
+    let write = files::file::write_file(&response, &end_point);
+    match write {
+        Ok(_) => println!("Write successful."),
+        Err(err) => println!("{:?}", err),
+    }
 }
