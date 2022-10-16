@@ -5,7 +5,7 @@ mod files;
 #[tokio::main]
 async fn main() {
     let end_point = "https://jsonplaceholder.typicode.com/posts".to_string();
-    let mut response: Vec<String> = network::request::send_request(&end_point).await.expect("Endpoint cant be called");
+    let response: Vec<String> = network::request::send_request(&end_point).await.expect("Endpoint cant be called");
 
     //Store response 
     
