@@ -1,12 +1,18 @@
 use regex::Regex;
+use std::collections::HashMap;
+
 
 pub async fn send_request(url: &str) -> Result<Vec<String>, Box<dyn std::error::Error>> {
-let resp = reqwest::get(url)
+    let client = reqwest::Client::new();
+    let resp = client
+        .get(url)
+        .header("john", "doe")
+        .send()
         .await?
         .text()
         .await?;
-    let keys = fetch_keys(&resp);
-    Ok(keys)
+        let keys = fetch_keys(&resp);
+        Ok(keys)
 }
 
 pub fn fetch_keys(text: &str) -> Vec<String>{
