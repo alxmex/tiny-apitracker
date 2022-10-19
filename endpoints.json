@@ -1,7 +1,18 @@
+[
 {
     "url":"https://jsonplaceholder.typicode.com/posts",
     "auth": "none"
+},
+{
+    "url":"https://jsonplaceholder.typicode.com/posts",
+    "auth": "none"
+},
+{
+	"url": "https://gorest.co.in/public/v2/posts",
+    "auth": "none"
 }
+]
+
 
 
 
