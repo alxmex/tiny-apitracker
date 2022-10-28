@@ -1,5 +1,4 @@
 use regex::Regex;
-use std::collections::HashMap;
 
 
 pub async fn send_request(url: &str) -> Result<Vec<String>, Box<dyn std::error::Error>> {

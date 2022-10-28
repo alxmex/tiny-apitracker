@@ -1,4 +1,3 @@
-
-https://jsonplaceholdertypicodecom/posts | userId | id | title | body | quia
-https://jsonplaceholdertypicodecom/posts | userId | id | title | body | quia
-https://gorestcoin/public/v2/posts | id | user_id | title | body | adnuo.
+{"https://jsonplaceholder.typicode.com/posts":["userId","id","title","body","quia"]}
+{"https://jsonplaceholder.typicode.com/posts":["userId","id","title","body","quia"]}
+{"https://gorest.co.in/public/v2/posts":["id","user_id","title","body","cunabula."]}
