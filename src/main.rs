@@ -27,8 +27,5 @@ async fn main() {
 
         ////Store response 
         let write = files::file::write_file(&response_hashmap);
-
-
     };
-
 }
