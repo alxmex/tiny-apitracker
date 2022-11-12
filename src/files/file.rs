@@ -12,9 +12,9 @@ pub fn write_file(endpoint: &HashMap<&str,Vec<String>>) -> Result<(), Box<dyn st
 }
 
 
-pub fn read_file(){
+pub fn read_file() -> HashMap<String, Vec<String>>{
     let mut contents = fs::read_to_string("response.txt").expect("Should have been able to read the file");
-    let mut read_from_file: HashMap<&str, Vec<String>> = HashMap::new();
+    let mut read_from_file: HashMap<String, Vec<String>> = HashMap::new();
     let mut keys: Vec<String> = Vec::new();
     for row in contents.lines(){
         let make_split = row.split(":");
@@ -33,16 +33,12 @@ pub fn read_file(){
 
 
         //Cleaning URL 
-        //let cleaned_url = splitted[0].replace("{", "").to_string();
-        // FIX THIS BLACK MAGIC
+        let cleaned_url = splitted[0].replace("{", "").replace('"', "").to_string();
+        read_from_file.insert(cleaned_url,keys.to_owned());
 
-        read_from_file.insert("Insert here", keys.to_owned());
     };
 
-
-
-    //println!("{:?}", read_from_file);
-
     //let ep: Vec<EndPoint> = serde_json::from_str(&endpoints_file).unwrap();
+    read_from_file
 
 }
