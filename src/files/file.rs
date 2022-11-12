@@ -3,7 +3,7 @@ use std::io::prelude::*;
 
 use std::collections::HashMap;
 
-pub fn write_file(endpoint: &HashMap<&str,Vec<String>>) -> Result<(), Box<dyn std::error::Error>>{
+pub fn write_file(endpoint: &HashMap<&str,&Vec<String>>) -> Result<(), Box<dyn std::error::Error>>{
     //TODO: Fix the path to scale on any machine.
     let mut file = fs::File::options().append(true).open("response.txt")?;
     serde_json::to_writer(&file, endpoint)?;
@@ -13,7 +13,7 @@ pub fn write_file(endpoint: &HashMap<&str,Vec<String>>) -> Result<(), Box<dyn st
 
 
 pub fn read_file() -> HashMap<String, Vec<String>>{
-    let mut contents = fs::read_to_string("response.txt").expect("Should have been able to read the file");
+    let contents = fs::read_to_string("response.txt").expect("Should have been able to read the file");
     let mut read_from_file: HashMap<String, Vec<String>> = HashMap::new();
     let mut keys: Vec<String> = Vec::new();
     for row in contents.lines(){
@@ -38,7 +38,7 @@ pub fn read_file() -> HashMap<String, Vec<String>>{
 
     };
 
-    //let ep: Vec<EndPoint> = serde_json::from_str(&endpoints_file).unwrap();
+    fs::write("response.txt", "").expect("Couldnt remove content from file.");
     read_from_file
 
 }
