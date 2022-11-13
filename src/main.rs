@@ -27,14 +27,10 @@ async fn main() {
         let mut response_hashmap: HashMap<&str, &Vec<String>> = HashMap::new();
        
         response_hashmap.insert(&converted_url, &response);
-
-
-
         let old = match old_responses.get(converted_url){
             Some(x) => x.to_owned(),
             None => files::file::if_is_none(&response_hashmap),
         };
-
 
         //New keys from the response.
         println!("[{}]", converted_url);

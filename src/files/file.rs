@@ -38,6 +38,6 @@ pub fn read_file() -> HashMap<String, Vec<String>>{
     read_from_file
 }
 
-pub fn if_is_none(map: &HashMap<&str, &Vec<String>>) ->  Vec<String>{
+pub fn if_is_none(_map: &HashMap<&str, &Vec<String>>) ->  Vec<String>{
     vec!["FIRST_CALL_TO_ENDPOINT_EVERYTHING_SHOW_AS_REMOVED".to_string()]
 }
