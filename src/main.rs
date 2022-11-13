@@ -28,18 +28,30 @@ async fn main() {
        
         response_hashmap.insert(&converted_url, &response);
 
+
+
         let old = match old_responses.get(converted_url){
-            Some(x) => x,
-            None => continue,
+            Some(x) => x.to_owned(),
+            None => files::file::if_is_none(&response_hashmap),
         };
 
+
         //New keys from the response.
+        println!("[{}]", converted_url);
         for value in &response{
             match old.contains(&value){
-                true => println!("{}, exists", value),
-                false => println!("{} dont exists", value),
+                true => println!("{} | OK ", value),
+                false => println!("{} | REMOVED", value),
             };
         };
+        for value in &old{
+            match response.contains(&value){
+                true => continue,
+                false => println!("{} | NEW", value),
+            };
+        };
+
+        println!("----------------------------------");
 
         ////Store response 
         match files::file::write_file(&response_hashmap) {

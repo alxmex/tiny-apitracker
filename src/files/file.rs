@@ -31,8 +31,13 @@ pub fn read_file() -> HashMap<String, Vec<String>>{
         //Cleaning URL 
         let cleaned_url = splitted[0].replace("{", "").replace('"', "").to_string();
         read_from_file.insert(cleaned_url,keys.to_owned());
+        keys.clear();
     };
 
     fs::write("response.txt", "").expect("Couldnt remove content from file.");
     read_from_file
+}
+
+pub fn if_is_none(map: &HashMap<&str, &Vec<String>>) ->  Vec<String>{
+    vec!["FIRST_CALL_TO_ENDPOINT_EVERYTHING_SHOW_AS_REMOVED".to_string()]
 }

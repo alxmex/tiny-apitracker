@@ -1,3 +1,2 @@
 {"jsonplaceholder.typicode.com/posts":["userId","id","title","body","quia"]}
-{"jsonplaceholder.typicode.com/posts":["userId","id","title","body","quia"]}
-{"gorest.co.in/public/v2/posts":["id","user_id","title","body","aptus."]}
+{"gorest.co.in/public/v2/posts":["id","user_id","title","body","caput."]}
