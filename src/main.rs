@@ -10,6 +10,7 @@ use serde_derive::Deserialize;
 #[derive(Deserialize)]
 pub struct EndPoint {
     url: String,
+    headers: HashMap<String, String>
 }
 
 #[tokio::main]
@@ -20,7 +21,7 @@ async fn main() {
     let old_responses = files::file::read_file();
 
     for json_object in ep.iter(){
-        let response: Vec<String> = network::request::send_request(&json_object.url).await.expect("Do you have internet connection?");
+        let response: Vec<String> = network::request::send_request(&json_object.url, &json_object.headers).await.expect("Do you have internet connection?");
         
         //Bad for the memoery but could remove K.
         let converted_url = &json_object.url.to_string().replace("https://", "");

@@ -1,11 +1,18 @@
 use regex::Regex;
+use reqwest::header::{HeaderMap, HeaderName, USER_AGENT, HeaderValue, CONTENT_TYPE};
+use std::collections::HashMap;
 
 
-pub async fn send_request(url: &str) -> Result<Vec<String>, Box<dyn std::error::Error>> {
+
+pub async fn send_request(url: &str, headers: &HashMap<String, String>) -> Result<Vec<String>, Box<dyn std::error::Error>> {
     let client = reqwest::Client::new();
+    
     let resp = client
         .get(url)
-        .header("john", "doe")
+        .header("x-api-key", &headers["x-api-key"])
+        .header("username", &headers["username"])
+        .header("password", &headers["password"])
+        .header("authorization", &headers["authorization"])
         .send()
         .await?
         .text()
@@ -25,4 +32,10 @@ pub fn fetch_keys(text: &str) -> Vec<String>{
         stack.push(replacing_non_chars);
     }
     stack
+}
+
+
+pub fn create_headers(hm: &HashMap<String, String>) -> Vec<&str>{
+    dbg!("HEJ");
+    vec!["hej"]
 }

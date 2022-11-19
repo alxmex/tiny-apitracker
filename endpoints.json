@@ -1,14 +1,26 @@
 [
 {
     "url":"https://jsonplaceholder.typicode.com/posts",
-    "auth": "none"
+    "headers": {
+		"x-api-key": "x-api-key",
+		"username": "username",
+		"password": "password",
+		"authorization": "authorization"
+	}
 },
 
 {
 	"url": "https://gorest.co.in/public/v2/posts",
-    "auth": "none"
+    "headers": {
+		"x-api-key": "x-api-key",
+		"username": "username",
+		"password": "password",
+		"authorization": "authorization"
+	}
 }
+
 ]
+
 
 
 
