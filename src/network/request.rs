@@ -2,8 +2,6 @@ use regex::Regex;
 use reqwest::header::{HeaderMap, HeaderName, USER_AGENT, HeaderValue, CONTENT_TYPE};
 use std::collections::HashMap;
 
-
-
 pub async fn send_request(url: &str, headers: &HashMap<String, String>) -> Result<Vec<String>, Box<dyn std::error::Error>> {
     let client = reqwest::Client::new();
     
@@ -32,10 +30,4 @@ pub fn fetch_keys(text: &str) -> Vec<String>{
         stack.push(replacing_non_chars);
     }
     stack
-}
-
-
-pub fn create_headers(hm: &HashMap<String, String>) -> Vec<&str>{
-    dbg!("HEJ");
-    vec!["hej"]
 }
